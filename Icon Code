@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merc Consulting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        #toggle-sound {
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 60px; /* Larger icon size */
+            position: absolute; /* Adjust position based on your layout */
+            bottom: 0px; /* Position it as needed */
+            right: 0px;  /* Position it as needed */
+            color:#90ff36; /* Change color to green */
+            z-index: 10; /* Ensure the button is above the video */
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-sound" class="toggle_sound">
+        <i class="fa fa-volume-mute"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleSoundButton = document.getElementById('toggle-sound');
+            var heroBackgroundVideo = document.querySelector('.herosection video');
+    
+            toggleSoundButton.addEventListener('click', function() {
+                if (heroBackgroundVideo.muted) {
+                    heroBackgroundVideo.muted = false;
+                    toggleSoundButton.querySelector('i').classList.remove('fa-volume-mute');
+                    toggleSoundButton.querySelector('i').classList.add('fa-volume-up');
+                } else {
+                    heroBackgroundVideo.muted = true;
+                    toggleSoundButton.querySelector('i').classList.remove('fa-volume-up');
+                    toggleSoundButton.querySelector('i').classList.add('fa-volume-mute');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
